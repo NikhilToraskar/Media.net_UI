@@ -1,0 +1,327 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+@import "_variable";
+@import "_mixin";
+
+body {
+    min-height: 75rem;
+    font-family: $roboto-font;
+    @include bp(mobile) {
+        font-size: 14px;
+    }
+}
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: $lightGrayColor; 
+}
+::-webkit-scrollbar-thumb {
+    background: $blueColor; 
+} 
+::-webkit-scrollbar-thumb:hover {
+    background: $darkBlueColor; 
+}
+
+.sidebar {
+    height: 100vh;
+    width: 60px;
+    background-color: $lightBlueColor;
+    @include transition(.5s all);
+    @include bp(tablets){
+        transform: translateX(-100%);
+        &.active{
+            transform: translateX(0);
+        }
+    }
+    .navbar-brand {
+        @include font-size(40px);
+        color: $whiteColor;
+    }
+    .bounded-nav {
+        position: relative;
+        top: 50%;
+        transform: translateY(calc(-50% - 76px));
+    }
+    .nav-link {
+        color: $whiteColor;
+        @include font-size(18px);
+        position: relative;
+        z-index: 1;
+        padding: 10px 0;
+        &:hover {
+            color: $whiteColor;
+            &:after {
+                content: "";
+                position: absolute;
+                width: 35px;
+                height: 35px;
+                border-radius: 5px;
+                background-color: $blueColor;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: -1;
+            }
+        }
+    }
+}
+.main-panel {
+    padding-left: 60px;
+    padding-top: 75px;
+    @include transition(.5s all);
+    @include bp(tablets){
+        padding-left: 0;
+        padding-top: 120px;
+        &.active {
+            padding-left: 60px;
+        }
+    }
+    .add-task{
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background-color: $blueColor;
+        color: $whiteColor;
+        @include font-size(20px);
+        width: 60px;
+        height: 60px;
+        line-height: 60px;
+    }
+}
+.topbar {
+    width: calc(100% - 60px);
+    right: 0;
+    left: auto;
+    background-color: $whiteColor;
+    border-bottom: 1px solid $lightGrayColor;
+    @include transition(.5s all);
+    @include bp(tablets) {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        &.active{
+            width: calc(100% - 60px);
+        }
+    }
+    .square-link {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        text-align: center;
+        i {
+            @include font-size(20px);
+            line-height: 40px;
+            color: $darkGrayColor;
+            @include transition(all 0.5s ease);
+        }
+        &:hover {
+            i {
+                color: $blackColor;
+            }
+        }
+    }
+    .bounded-select {
+        width: 75%;
+        padding: 15px;
+        position: relative;
+        @include bp(mobile){
+            width: 80%;
+        }
+        &:after {
+            content: "";
+            position: absolute;
+            width: calc(100% - 15px);
+            bottom: 0;
+            height: 2px;
+            background-color: $lightBlueColor;
+            left: 0;
+        }
+        .all-link {
+            white-space: nowrap;
+            @include bp(mobile){
+                
+            }
+        }
+    }
+    .top-select {
+        position: relative;
+        .custom-select {
+            color: $darkBlueColor;
+            background-image: none;
+            outline: none;
+            box-shadow: none;
+            border: none;
+            font-weight: 700;
+            @include font-size(20px);
+            max-width: 300px;
+            overflow: hidden !important;
+            text-overflow: ellipsis;
+            @include bp(mobile){
+                @include font-size(16px);
+            }
+        }
+        i {
+            @include font-size(20px);
+            position: absolute;
+            right: 10px;
+            top: 10px;
+        }
+    }
+    .all-link {
+        a {
+            color: $darkGrayColor;
+            @include transition(all 0.5s ease);
+        }
+        &:hover {
+            a {
+                color: $blackColor;
+                text-decoration: none;
+            }
+        }
+    }
+}
+.project-info {
+    color: $darkGrayColor;
+    .star {
+        @include font-size(20px);
+    }
+    .user-count {
+        color: $darkGrayColor;
+        background-color: $lightGrayColor;
+    }
+    .days-count {
+        color: $yellowColor;
+        background-color: $lightYellowColor;
+    }
+    > span {
+        @include font-size(14px);
+    }
+}
+.task-switch {
+    .custom-switch {
+        padding: 0;
+        label {
+            &:first-child {
+                padding-right: 40px;
+                @include font-size(14px);
+            }
+        }
+    }
+}
+.bounded-task-list {
+    background-color: $lightGrayColor;
+    .task-status {
+        @include font-size(17px);
+        color: $darkBlueColor;
+        font-weight: 700;
+        i {
+            @include font-size(14px);
+            color: $darkGrayColor;
+        }
+    }
+    #toDo, #inReview, #inProgress, #done {
+        padding: 20px 0;
+    }
+}
+
+.bounded-task {
+    background-color: $whiteColor;
+    cursor: move;
+    padding: 15px 0;
+    margin-bottom: 15px;
+    @include box-shadow(0, 1px, 2px, rgba(0, 0, 0, 0.2));
+    .task-name {
+        @include font-size(15px);
+        font-weight: 700;
+        padding: 0 15px;
+        margin-bottom: 10px;
+        color: $darkBlueColor;
+        position: relative;
+        &:before {
+            content: "";
+            position: absolute;
+            height: 100%;
+            width: 4px;
+            left: 0;
+            top: 0;
+        }
+    }
+    &.low-priority {
+        .task-name {
+            &:before {
+                background-color: $darkGrayColor;
+            }
+        }
+    }
+    &.medium-priority {
+        .task-name {
+            &:before {
+                background-color: $yellowColor;
+            }
+        }
+    }
+    &.high-priority {
+        .task-name {
+            &:before {
+                background-color: $redColor;
+            }
+        }
+    }
+    .task-desc{
+        @include font-size(14px);
+        padding: 0 15px;
+        color : $darkGrayColor;
+        p{
+            margin-bottom: 0;
+        }
+        span{
+            @include font-size(12px);
+            font-style: italic;
+            text-align: right;
+            display: block;
+            margin-bottom: 10px;
+        }
+    }
+    .task-image{
+        margin-bottom: 10px;
+    }
+    .task-details {
+        padding: 0 15px;
+        .task-inner-details {
+            > a {
+                color: $darkGrayColor;
+                background-color: $lightGrayColor;
+                margin-right: 2px;
+                padding: 1px 4px;
+                display: inline-block;
+                @include font-size(12px);
+                &:last-child {
+                    margin-right: 0;
+                }
+                &:hover {
+                    text-decoration: none;
+                }
+                &.task-date{
+                    &.active{
+                        color: $whiteColor;
+                        background-color: $redColor;
+                    }
+                }
+                span {
+                    i {
+                        margin-right: 5px;
+                    }
+                }
+            }
+        }
+        .task-inner-users {
+            .task-user {
+                width: 30px;
+                margin-right: 5px;
+                &:last-child {
+                    margin-right: 0;
+                }
+            }
+        }
+    }
+}

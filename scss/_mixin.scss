@@ -1,0 +1,45 @@
+//Font mixin
+@function calculateRem($size) {
+    $remSize: $size / 16px;
+    @return $remSize * 1rem;
+}
+
+@mixin font-size($size) {
+    font-size: $size;
+    font-size: calculateRem($size);
+}
+
+//Transition mixin
+@mixin transition($args...) {
+    -webkit-transition: $args;
+    -moz-transition: $args;
+    -ms-transition: $args;
+    -o-transition: $args;
+    transition: $args;
+}
+
+//Box-Shadow Mixin
+@mixin box-shadow($top, $left, $blur, $color, $inset: false) {
+    @if $inset {
+        -webkit-box-shadow: inset $top $left $blur $color;
+        -moz-box-shadow: inset $top $left $blur $color;
+        box-shadow: inset $top $left $blur $color;
+    } @else {
+        -webkit-box-shadow: $top $left $blur $color;
+        -moz-box-shadow: $top $left $blur $color;
+        box-shadow: $top $left $blur $color;
+    }
+}
+
+//Media-Query Mixin
+@mixin bp($point) {
+    @if $point == large-devices {
+      @media (max-width: 1199px) { @content; }
+    }
+    @else if $point == tablets {
+      @media (max-width: 991px) { @content; }
+    }
+    @else if $point == mobile {
+      @media (max-width: 576px)  { @content; }
+    }
+}

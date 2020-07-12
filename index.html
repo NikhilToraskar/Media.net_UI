@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="generator" content="">
+    <title>Task Management | Media.net</title>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <!-- Custom styles for this template -->
+    <link href="css/dragula.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="scss/style.css" rel="stylesheet">
+    <!--Font-Awsome-JS-->
+    <script src="https://kit.fontawesome.com/30271a95da.js" crossorigin="anonymous"></script>
+    <!--Drag&Drop Plugin-->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.1/dragula.min.js'></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <!--Sidebar-->
+        <div class="sidebar navbar-nav position-fixed" id="sidebar">
+            <a class="navbar-brand m-0 p-2 text-center" href="#">
+                <i class="fas fa-square"></i>
+            </a>
+            <ul class="list-unstyled flex-column text-center m-0 bounded-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="fas fa-home"></i><span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="fas fa-th-large"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="fas fa-calendar-alt"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="fas fa-comment"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="fas fa-clock"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="fas fa-user"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="fas fa-tools"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="main-panel" id="mainPanel">
+            <nav class="navbar navbar-expand fixed-top navbar-light topbar p-0" id="topBar">
+                <!-- Sidebar Toggle (Topbar) -->
+                <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <ul class="list-unstyled d-flex justify-content-between align-items-center mb-0 bounded-select">
+                    <li class="all-link">
+                        <a href="">
+                            <i class="fas fa-arrow-left pr-3"></i>
+                            <span>All Projects</span>
+                        </a>
+                    </li>
+                    <li class="top-select">
+                        <select class="custom-select">
+                            <option selected>Supermassive Black Hole</option>
+                            <option value="1">Supermassive Black Hole Supermassive Black Hole</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                        <i class="fas fa-angle-down"></i>
+                    </li>
+                    <li class="invisible"></li>
+                </ul>
+                <ul class="navbar-nav ml-auto d-flex align-items-center">
+                    <li class="nav-item">
+                        <a href="" class="nav-link">
+                            <div class="square-link shadow-sm">
+                                <i class="fas fa-search"></i>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="" class="nav-link">
+                            <div class="square-link shadow-sm">
+                                <i class="fas fa-bell"></i>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="" class="nav-link">
+                            <div class="square-link overflow-hidden shadow-sm">
+                                <img src="https://picsum.photos/id/1025/200" alt="user-image" class="w-100 img-fluid">
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12 d-flex justify-content-between py-4">
+                            <div class="project-info">
+                                <span class="star mr-2">
+                                    <i class="far fa-star"></i>
+                                </span>
+                                <span class="user-count d-inline-block rounded-sm px-2 mr-2 ">
+                                    <i class="far fa-user pr-1"></i>6 People
+                                </span>
+                                <span class="days-count d-inline-block rounded-sm px-2">
+                                    <i class="far fa-clock pr-1"></i>2 days left  
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6 mb-3">
+                            <div class=" rounded-sm bounded-task-list">
+                                <div class="col-12 p-3">
+                                    <h2 class="d-flex justify-content-between align-items-center task-status mb-3">ToDo
+                                        <a href="#" class="">
+                                            <i class="fas fa-ellipsis-h"></i>
+                                        </a>
+                                    </h2>
+                                    <div id="toDo">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 mb-3">
+                            <div class=" rounded-sm bounded-task-list">
+                                <div class="col-12 p-3">
+                                    <h2 class="d-flex justify-content-between align-items-center task-status mb-3">In
+                                        progress
+                                        <a href="#" class="">
+                                            <i class="fas fa-ellipsis-h"></i>
+                                        </a>
+                                    </h2>
+                                    <div id="inProgress">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 mb-3">
+                            <div class=" rounded-sm bounded-task-list">
+                                <div class="col-12 p-3">
+                                    <h2 class="d-flex justify-content-between align-items-center task-status mb-3">In
+                                        review
+                                        <a href="#" class="">
+                                            <i class="fas fa-ellipsis-h"></i>
+                                        </a>
+                                    </h2>
+                                    <div id="inReview">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 mb-3">
+                            <div class=" rounded-sm bounded-task-list">
+                                <div class="col-12 p-3">
+                                    <h2 class="d-flex justify-content-between align-items-center task-status mb-3">Done
+                                        <a href="#" class="">
+                                            <i class="fas fa-ellipsis-h"></i>
+                                        </a>
+                                    </h2>
+                                    <div id="done">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="javascript:void(0);" class="add-task text-center rounded-circle shadow" data-toggle="modal"
+                        data-target="#toDoModel">
+                        <i class="fas fa-plus"></i>
+                    </a>
+                    <div class="modal fade" id="toDoModel" data-keyboard="false" tabindex="-1" role="dialog"
+                        aria-labelledby="toDoModelLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="toDoModelLabel">Add ToDo</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form id="addForm" onsubmit="addData()">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <label class="input-group-text" for="userSelect">User</label>
+                                            </div>
+                                            <select class="custom-select" id="userSelect" name="userSelect">
+                                                <option value="https://picsum.photos/100?random=4">Select User</option>
+                                                <option value="https://picsum.photos/100?random=1">User1</option>
+                                                <option value="https://picsum.photos/100?random=2">User2</option>
+                                                <option value="https://picsum.photos/100?random=3">User3</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="title">Title</label>
+                                            <input type="text" name="title" class="form-control" id="title"
+                                                placeholder="Title" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="description">Description</label>
+                                            <textarea class="form-control" name="description" id="description" rows="3"
+                                                required></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="username">Username</label>
+                                            <input type="text" name="username" class="form-control" id="username"
+                                                placeholder="Username" required>
+                                        </div>
+                                        <input type="submit" class="btn btn-primary" value="Add Task" />
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+    <script src="js/custom.js"></script>
+</body>
+
+</html>
